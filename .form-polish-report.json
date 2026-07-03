@@ -1,0 +1,46 @@
+{
+  "entities": {
+    "Veranstaltungen": {
+      "placeholders_set": 16,
+      "defaults_keys": ["startdatum", "enddatum", "max_teilnehmerzahl", "aktuelle_teilnehmerzahl", "art"],
+      "computed_keys": ["_veranstaltung_dauer_tage"],
+      "reason": "Veranstaltungen mit Datumspaar (startdatum/enddatum) — Dauer automatisch berechnet"
+    },
+    "Anmeldungen": {
+      "placeholders_set": 24,
+      "defaults_keys": ["buchungsdatum", "buchungsstatus", "datenschutz_akzeptiert"],
+      "computed_keys": [],
+      "reason": "Reine Stammdaten (Adresse, Kontakt, Status). Nur einzelnes buchungsdatum, kein Datumspaar — keine berechenbaren Größen"
+    },
+    "Teilnehmer": {
+      "placeholders_set": 14,
+      "defaults_keys": ["teilnehmerstatus"],
+      "computed_keys": [],
+      "reason": "Kontaktdaten und Referenzen zu Anmeldungen. Keine Preise, keine Datumspaare — keine computed Felder"
+    },
+    "Gebuchte Leistungen": {
+      "placeholders_set": 15,
+      "defaults_keys": ["datum_von", "datum_bis", "preis_netto", "rabatt", "status"],
+      "computed_keys": ["_leistung_dauer_tage", "_leistung_netto_nach_rabatt"],
+      "reason": "Leistungen mit Datumspaar (datum_von/datum_bis) und Preis-Felder. Dauer und Netto-nach-Rabatt automatisch berechnet"
+    },
+    "Prüfungen": {
+      "placeholders_set": 15,
+      "defaults_keys": ["pruefungsdatum", "pruefungsart", "bestanden"],
+      "computed_keys": [],
+      "reason": "Dokumentation von Prüfungen mit einzelnem pruefungsdatum (nicht Datumspaar) und Ergebnissen. Keine berechenbaren Größen"
+    },
+    "WEBER.SPZ Übersicht": {
+      "placeholders_set": 10,
+      "defaults_keys": ["anzahl_anmeldungen", "gesamtteilnehmerzahl", "fehlerhafte_syncs"],
+      "computed_keys": [],
+      "reason": "Übersichts-Entity mit Zähl-Feldern. Keine Datumspaare, keine Preise, keine engen Kalkulationen — Fehlerquote wäre marginal"
+    },
+    "Sync-Protokoll": {
+      "placeholders_set": 13,
+      "defaults_keys": ["sync_zeitpunkt", "sync_status"],
+      "computed_keys": [],
+      "reason": "Technisches Audit-Log für Synchronisationen. Nur Timestamps und Status-Logs — keine berechnbaren Größen"
+    }
+  }
+}
