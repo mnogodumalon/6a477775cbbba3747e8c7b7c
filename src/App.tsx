@@ -6,7 +6,6 @@ import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { ErrorBusProvider } from '@/components/ErrorBus';
 import { Layout } from '@/components/Layout';
 import DashboardOverview from '@/pages/DashboardOverview';
-import { WorkflowPlaceholders } from '@/components/WorkflowPlaceholders';
 import AdminPage from '@/pages/AdminPage';
 import VeranstaltungenPage from '@/pages/VeranstaltungenPage';
 import VeranstaltungenDetailPage from '@/pages/VeranstaltungenDetailPage';
@@ -32,6 +31,8 @@ import PublicFormSyncProtokoll from '@/pages/public/PublicForm_SyncProtokoll';
 // <public:imports>
 // </public:imports>
 // <custom:imports>
+const AnmeldungErfassenPage = lazy(() => import('@/pages/intents/AnmeldungErfassenPage'));
+const PruefungsergebnisseErfassenPage = lazy(() => import('@/pages/intents/PruefungsergebnisseErfassenPage'));
 // </custom:imports>
 
 export default function App() {
@@ -51,7 +52,7 @@ export default function App() {
               {/* <public:routes> */}
               {/* </public:routes> */}
               <Route element={<Layout />}>
-                <Route index element={<><div className="mb-8"><WorkflowPlaceholders /></div><DashboardOverview /></>} />
+                <Route index element={<DashboardOverview />} />
                 <Route path="veranstaltungen" element={<VeranstaltungenPage />} />
                 <Route path="veranstaltungen/:id" element={<VeranstaltungenDetailPage />} />
                 <Route path="anmeldungen" element={<AnmeldungenPage />} />
@@ -68,6 +69,8 @@ export default function App() {
                 <Route path="sync-protokoll/:id" element={<SyncProtokollDetailPage />} />
                 <Route path="admin" element={<AdminPage />} />
                 {/* <custom:routes> */}
+                <Route path="intents/anmeldung-erfassen" element={<Suspense fallback={null}><AnmeldungErfassenPage /></Suspense>} />
+                <Route path="intents/pruefungsergebnisse-erfassen" element={<Suspense fallback={null}><PruefungsergebnisseErfassenPage /></Suspense>} />
                 {/* </custom:routes> */}
               </Route>
             </Routes>

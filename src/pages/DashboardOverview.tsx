@@ -150,6 +150,29 @@ export default function DashboardOverview() {
 
   return (
     <div className="space-y-6">
+      {/* Workflow-Schnellzugriff */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <a href="#/intents/anmeldung-erfassen" className="flex items-center gap-4 bg-card border border-border border-l-4 border-l-primary rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow group overflow-hidden">
+          <div className="shrink-0 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+            <IconClipboardList size={20} className="text-primary" />
+          </div>
+          <div className="flex-1 min-w-0">
+            <div className="font-semibold text-foreground truncate">Neue Anmeldung erfassen</div>
+            <div className="text-sm text-muted-foreground truncate">Buchung, Teilnehmer & Leistungen in einem Workflow</div>
+          </div>
+          <IconChevronRight size={18} className="text-muted-foreground shrink-0" />
+        </a>
+        <a href="#/intents/pruefungsergebnisse-erfassen" className="flex items-center gap-4 bg-card border border-border border-l-4 border-l-primary rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow group overflow-hidden">
+          <div className="shrink-0 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+            <IconAward size={20} className="text-primary" />
+          </div>
+          <div className="flex-1 min-w-0">
+            <div className="font-semibold text-foreground truncate">Prüfungsergebnisse erfassen</div>
+            <div className="text-sm text-muted-foreground truncate">Ergebnisse für alle Teilnehmer einer Veranstaltung eintragen</div>
+          </div>
+          <IconChevronRight size={18} className="text-muted-foreground shrink-0" />
+        </a>
+      </div>
       {/* KPI-Zeile */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
         <StatCard
